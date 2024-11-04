@@ -1,0 +1,89 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Maidian News"
+    },
+    {
+      "name": "reason_for_internet_connection",
+      "value": "Need Internet connection to load news data."
+    },
+    {
+      "name": "feature_news",
+      "value": "Hot News"
+    },
+    {
+      "name": "tech_news",
+      "value": "Technology"
+    },
+    {
+      "name": "games_news",
+      "value": "Games"
+    },
+    {
+      "name": "health_news",
+      "value": "Health"
+    },
+    {
+      "name": "world_news",
+      "value": "World"
+    },
+    {
+      "name": "sports_news",
+      "value": "Sports"
+    },
+    {
+      "name": "fin_news",
+      "value": "Finance"
+    },
+    {
+      "name": "main_page",
+      "value": "Home"
+    },
+    {
+      "name": "my_page",
+      "value": "My Page"
+    },
+    {
+      "name": "user_name",
+      "value": "User XJY"
+    },
+    {
+      "name": "vip_type_name",
+      "value": "VIP Member"
+    },
+    {
+      "name": "to_name",
+      "value": "Available before 2024.12.12"
+    },
+    {
+      "name": "user_center",
+      "value": "User Center"
+    },
+    {
+      "name": "my_collection",
+      "value": "My Collection"
+    },
+    {
+      "name": "my_history",
+      "value": "Browsing History"
+    },
+    {
+      "name": "my_likes",
+      "value": "My Likes"
+    },
+    {
+      "name": "log_out",
+      "value": "Log Out"
+    }
+
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "卖点新闻"
+    },
+    {
+      "name": "reason_for_internet_connection",
+      "value": "需要使用网络来加载新闻数据"
+    },
+    {
+      "name": "feature_news",
+      "value": "热点"
+    },
+    {
+      "name": "tech_news",
+      "value": "科技"
+    },
+    {
+      "name": "games_news",
+      "value": "游戏"
+    },
+    {
+      "name": "health_news",
+      "value": "健康"
+    },
+    {
+      "name": "world_news",
+      "value": "国际"
+    },
+    {
+      "name": "sports_news",
+      "value": "体育"
+    },
+    {
+      "name": "fin_news",
+      "value": "财经"
+    },
+    {
+      "name": "main_page",
+      "value": "首页"
+    },
+    {
+      "name": "my_page",
+      "value": "我的"
+    },
+    {
+      "name": "user_name",
+      "value": "用户 XJY"
+    },
+    {
+      "name": "vip_type_name",
+      "value": "高级会员"
+    },
+    {
+      "name": "to_name",
+      "value": "至 2022.12.12"
+    },
+    {
+      "name": "user_center",
+      "value": "用户中心"
+    },
+    {
+      "name": "my_collection",
+      "value": "我的收藏"
+    },
+    {
+      "name": "my_history",
+      "value": "浏览历史"
+    },
+    {
+      "name": "my_likes",
+      "value": "我的点赞"
+    },
+    {
+      "name": "log_out",
+      "value": "退出账号"
+    }
+  ]
+}

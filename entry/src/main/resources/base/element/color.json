@@ -1,0 +1,16 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "grey_background_color",
+      "value": "#EEEEEE"
+    },
+    {
+      "name": "date_and_author_font_color",
+      "value": "#999999"
+    }
+  ]
+}
