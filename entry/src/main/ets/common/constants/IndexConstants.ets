@@ -21,4 +21,10 @@ export class NewsItemStyle{
     static readonly TITLE_FONT_SIZE: number = 18;
 
     static readonly DATE_AND_AUTHOR_FONT_SIZE: number = 14;
+
+    static readonly PICTURE_WIDTH: string = "30%";
+
+    static readonly PICTURE_BORDER_RADIUS: number = 5;
+
+    static readonly TITLE_WIDTH: string = "65%";
 }

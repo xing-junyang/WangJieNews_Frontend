@@ -3,6 +3,7 @@ import { NewsItem } from '../entryability/EntryAbility';
 import { NewsItemComponent } from './NewsItemComponent';
 import DataBaseHelper from '../entryability/DataBaseHelper'
 import { common } from '@kit.AbilityKit';
+import { promptAction } from '@kit.ArkUI';
 
 @Component
 struct NewsComponent {
@@ -16,7 +17,6 @@ struct NewsComponent {
     private context = getContext(this) as common.UIAbilityContext;
 
     build() {
-        Navigation() {
             Tabs({ barPosition: BarPosition.Start }) {
                 TabContent() {
                     List() {
@@ -128,8 +128,7 @@ struct NewsComponent {
                 }
                 .tabBar($r("app.string.fin_news"))
             }.barMode(BarMode.Scrollable)
-        }
-        .mode(NavigationMode.Stack)
+
     }
 
     aboutToAppear(): void {
@@ -142,7 +141,16 @@ struct NewsComponent {
     classifyNewsAndWriteToArray() {
             let dbh = new DataBaseHelper(this.context)
             dbh.createDataBase().then(()=>{
-                dbh.getNews(); //在创建数据库之后立即拉取新闻数据
+                dbh.getNews().catch(()=>{
+                    try {
+                        promptAction.showToast({
+                            message: $r('app.string.server_no_response'),
+                            duration: 2000
+                        });
+                    } catch (error) {
+                        console.error(`showToast error: ${error}`);
+                    };
+                }); //在创建数据库之后立即拉取新闻数据
                 dbh.getNewsFromDB("Feature").then((res) => {
                     this.FeatureNews = res;
                 })
@@ -174,3 +182,7 @@ struct NewsComponent {
 }
 
 export { NewsComponent }
+
+function showToast(res: undefined, Resource: undefined) {
+    throw new Error('Function not implemented.');
+}

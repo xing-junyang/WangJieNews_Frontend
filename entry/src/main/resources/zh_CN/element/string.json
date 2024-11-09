@@ -10,7 +10,7 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "卖点新闻"
+      "value": "望界新闻"
     },
     {
       "name": "reason_for_internet_connection",
@@ -18,7 +18,7 @@
     },
     {
       "name": "feature_news",
-      "value": "热点"
+      "value": "国内"
     },
     {
       "name": "tech_news",
@@ -30,7 +30,7 @@
     },
     {
       "name": "health_news",
-      "value": "健康"
+      "value": "文化"
     },
     {
       "name": "world_news",
@@ -83,6 +83,42 @@
     {
       "name": "log_out",
       "value": "退出账号"
+    },
+    {
+      "name": "added_to_like_list",
+      "value": "已加入点赞列表"
+    },
+    {
+      "name": "added_to_collection",
+      "value": "已加入收藏列表"
+    },
+    {
+      "name": "removed_from_like_list",
+      "value": "已移出点赞列表"
+    },
+    {
+      "name": "removed_from_collection",
+      "value": "已移出收藏列表"
+    },
+    {
+      "name": "error_adding_to_list",
+      "value": "加入列表失败"
+    },
+    {
+      "name": "error_removing_from_list",
+      "value": "移出列表失败"
+    },
+    {
+      "name": "error",
+      "value": "发生内部错误"
+    },
+    {
+      "name": "no_resource",
+      "value": "暂时还没有内容, 快去探索吧！"
+    },
+    {
+      "name": "server_no_response",
+      "value": "服务器未响应，请检查网络连接"
     }
   ]
 }

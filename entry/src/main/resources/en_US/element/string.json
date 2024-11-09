@@ -10,7 +10,7 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "Maidian News"
+      "value": "World Insight"
     },
     {
       "name": "reason_for_internet_connection",
@@ -18,7 +18,7 @@
     },
     {
       "name": "feature_news",
-      "value": "Hot News"
+      "value": "Domestic"
     },
     {
       "name": "tech_news",
@@ -30,7 +30,7 @@
     },
     {
       "name": "health_news",
-      "value": "Health"
+      "value": "Culture"
     },
     {
       "name": "world_news",
@@ -83,7 +83,42 @@
     {
       "name": "log_out",
       "value": "Log Out"
+    },
+    {
+      "name": "added_to_like_list",
+      "value": "Added to My Likes"
+    },
+    {
+      "name": "added_to_collection",
+      "value": "Added to My Collection"
+    },
+    {
+      "name": "removed_from_like_list",
+      "value": "Removed from My Likes"
+    },
+    {
+      "name": "removed_from_collection",
+      "value": "Removed from My Collection"
+    },
+    {
+      "name": "error_adding_to_list",
+      "value": "An error occurred while adding to list"
+    },
+    {
+      "name": "error_removing_from_list",
+      "value": "An error occurred while removing from list"
+    },
+    {
+      "name": "error",
+      "value": "An internal error occurred."
+    },
+    {
+      "name": "no_resource",
+      "value": "          Nothing here...\n\nWhy not read some news?"
+    },
+    {
+      "name": "server_no_response",
+      "value": "No response. Check your connection."
     }
-
   ]
 }

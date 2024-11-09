@@ -1,3 +1,4 @@
+import { UserPageComponentStyle } from '../common/constants/UserPageConstants'
 import {BasicUserInfoComponent} from './UserPage/BasicUserInfoComponent'
 import {UserNewsCollectionComponent} from './UserPage/UserNewsCollectionComponent'
 
@@ -24,8 +25,8 @@ struct UserPageComponent{
             .backgroundColor($r("app.color.grey_background_color"))
         }
         .justifyContent(FlexAlign.Start)
-        .width('90%')
-        .height('90%')
+        .width(UserPageComponentStyle.PAGE_WIDTH)
+        .height(UserPageComponentStyle.PAGE_HEIGHT)
     }
 }
 
