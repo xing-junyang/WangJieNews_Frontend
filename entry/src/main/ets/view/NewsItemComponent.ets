@@ -5,34 +5,13 @@ import { common } from '@kit.AbilityKit';
 import DataBaseHelper from '../entryability/DataBaseHelper';
 import { promptAction } from '@kit.ArkUI';
 
-class IconModifier implements AttributeModifier<MenuAttribute>{
-    activatedPath: string = "";
-    inactivatedPath: string = "";
-    isActivated: boolean = false;
-
-    constructor(activatedPath: string, inactivatedPath: string) {
-        this.activatedPath = activatedPath;
-        this.inactivatedPath = inactivatedPath;
-    }
-
-    applyNormalAttribute(instance: MenuAttribute): void {
-        if(this.isActivated){
-
-        }else{
-            instance.customProperty("icon", this.inactivatedPath);
-        }
-    }
-}
-
 @Component
 struct NewsItemComponent {
     @Prop item: NewsItem;
     @State isStarred: boolean = false;
     @State isLiked: boolean = false;
-    @State likeIcon: string = this.isLiked ? "/resources/base/media/heart_fill.svg": "/resources/base/media/heart.svg"
-    @State starIcon: string =  this.isStarred ? "/resources/base/media/star_fill.svg": "/resources/base/media/star.svg"
-    @State likeModifier: IconModifier = new IconModifier("/resources/base/media/heart_fill.svg", "/resources/base/media/heart.svg");
-    @State starModifier: IconModifier = new IconModifier("/resources/base/media/star_fill.svg", "/resources/base/media/heart.svg")
+    @State likeIcon: string = "/resources/base/media/heart_fill.svg"
+    @State starIcon: string =  "/resources/base/media/star_fill.svg"
 
     private context = getContext(this) as common.UIAbilityContext;
     private dbh = new DataBaseHelper(this.context)
@@ -58,6 +37,7 @@ struct NewsItemComponent {
                         this.dbh.addToCollection("LIKES", this.item).then(() => {
                             // 通知用户
                             this.showToast($r('app.string.added_to_like_list'))
+                            console.log("DEBUGGER: ", this.item.date)
                         }).catch(() => {
                             // 同样通知用户
                             this.showToast($r('app.string.error_adding_to_list'))
@@ -165,7 +145,7 @@ struct NewsItemComponent {
                                         .fontSize(NewsItemStyle.DATE_AND_AUTHOR_FONT_SIZE)
                                         .fontColor($r('app.color.date_and_author_font_color'))
                                 }
-                                Text(this.item.date)
+                                Text(this.item.date.replaceAll("-","").replaceAll("-",""))
                                     .fontSize(NewsItemStyle.DATE_AND_AUTHOR_FONT_SIZE)
                                     .fontColor($r('app.color.date_and_author_font_color'))
                             }

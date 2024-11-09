@@ -21,9 +21,11 @@ struct Index {
                     .tabBar({text: $r("app.string.my_page"), icon: $r("app.media.person")})
                 }.scrollable(false)
                 .animationDuration(300)
-            }.mode(NavigationMode.Auto)
+            }
+            .mode(NavigationMode.Auto)
             .height('100%')
             .hideTitleBar(true)
+            .navBarWidth("35%")
         }
         .height('100%')
         .width('100%')
