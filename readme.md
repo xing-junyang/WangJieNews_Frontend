@@ -1,5 +1,7 @@
 # 望界新闻：作业一
 
+> 这是南京大学移动互联网软件工程课程个人小作业（大三上）
+
 ## 功能介绍
 
 本应用是一个**新闻浏览软件**，采用服务器-客户端模式开发，本鸿蒙 APP 相当于客户端。服务器使用 Spring Boot 架构进行开发，首先在指定的网站上获取新闻数据，并存入数据库，然后接受客户端的 HTTP 请求，以 JSON 数据的格式返回给客户端。客户端加载数据，并显示新闻。
@@ -10,9 +12,9 @@
 
 ## 代码仓库
 
-- **客户端（本作业）**：https://git.nju.edu.cn/34_2024_fall_devops/harmony_homework_client
+- **客户端（本作业）**：https://github.com/xing-junyang/WangJieNews_Frontend
 
-- 后端（附属性工作，可检查或部署）：https://git.nju.edu.cn/xingjunyang/harmony_homework_backend
+- 后端（附属性工作，可检查或部署）：https://github.com/xing-junyang/WangJieNews_Backend
 
 ## 功能实现
 
