@@ -1,6 +1,8 @@
 import router from '@ohos.router';
 import http from '@ohos.net.http';
 import promptAction from '@ohos.promptAction';
+import DataBaseHelper from '../entryability/DataBaseHelper';
+import AuthService from '../entryability/AuthService';
 
 @Entry
 @Component
@@ -11,18 +13,36 @@ struct Index {
   @State password: string = '';
 
   S_login() {
-    if (this.username == "admin" && this.password == "admin") {
-      router.replaceUrl({
-        url: "pages/Index",
-        params: {
-          activities: this.activities
+    const authService = new AuthService();
+    authService.login(this.username, this.password)
+      .then((success) => {
+        if (success) {
+          console.info('登录成功');
+          router.replaceUrl({
+            url: "pages/Index",
+            params: {
+              activities: this.activities
+            }
+          });
+        } else {
+          console.error('登录失败');
+          promptAction.showToast({
+            message: "密码或用户名错误，请重新输入"
+          });
         }
       });
-    } else {
-      promptAction.showToast({
-        message: "密码或用户名错误，请重新输入"
-      });
-    }
+    // if (this.username == "admin" && this.password == "admin") {
+    //   router.replaceUrl({
+    //     url: "pages/Index",
+    //     params: {
+    //       activities: this.activities
+    //     }
+    //   });
+    // } else {
+    //   promptAction.showToast({
+    //     message: "密码或用户名错误，请重新输入"
+    //   });
+    // }
   }
 
   register(){

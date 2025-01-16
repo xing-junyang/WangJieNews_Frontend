@@ -1,5 +1,6 @@
 import router from '@ohos.router';
 import promptAction from '@ohos.promptAction';
+import AuthService from '../entryability/AuthService';
 
 @Entry
 @Component
@@ -10,21 +11,48 @@ struct Register {
   @State password: string = '';
 
   S_register() {
+    let authService = new AuthService();
     if (this.username !== '' && this.password !== '') {
-      promptAction.showToast({
-        message: "注册成功，跳转至登录页面",
-      });
-      router.replaceUrl({
-        url: "pages/Login",
-        params: {
-          activities: this.activities
-        }
-      });
-    } else {
+      authService.register(this.username, this.password)
+        .then((success) => {
+          if (success) {
+            console.info('注册成功666');
+            router.replaceUrl({
+              url: "pages/Login",
+              params: {
+                activities: this.activities
+              }
+            });
+            promptAction.showToast({
+              message: "注册成功，跳转至登录页面",
+            });//不起作用？
+          } else {
+            console.error('注册失败');
+            promptAction.showToast({
+              message: "注册失败",
+            });//不起作用？
+          }
+        });
+    }else {
       promptAction.showToast({
         message: "用户名或密码不能为空"
       });
     }
+    // if (this.username !== '' && this.password !== '') {
+    //   promptAction.showToast({
+    //     message: "注册成功，跳转至登录页面",
+    //   });
+    //   router.replaceUrl({
+    //     url: "pages/Login",
+    //     params: {
+    //       activities: this.activities
+    //     }
+    //   });
+    // } else {
+    //   promptAction.showToast({
+    //     message: "用户名或密码不能为空"
+    //   });
+    // }
   }
 
   build() {
