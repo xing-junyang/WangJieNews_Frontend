@@ -1,0 +1,85 @@
+import router from '@ohos.router';
+import promptAction from '@ohos.promptAction';
+
+@Entry
+@Component
+struct Register {
+
+  @State activities: object[] = [];
+  @State username: string = '';
+  @State password: string = '';
+
+  S_register() {
+    if (this.username !== '' && this.password !== '') {
+      promptAction.showToast({
+        message: "注册成功，跳转至登录页面",
+      });
+      router.replaceUrl({
+        url: "pages/Login",
+        params: {
+          activities: this.activities
+        }
+      });
+    } else {
+      promptAction.showToast({
+        message: "用户名或密码不能为空"
+      });
+    }
+  }
+
+  build() {
+    Column({
+      space: 30,
+    }) {
+      Flex({ alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
+        Column({
+          space: 20
+        }) {
+          Text("望界新闻注册")
+            .fontSize(30)
+            .fontWeight(FontWeight.Bold)
+            .margin({ top: 20, bottom: 20 });
+
+          TextInput({
+            placeholder: '请输入用户名',
+          })
+            .width(300)
+            .height(50)
+            .fontSize(18)
+            .backgroundColor('#F5F5F5')
+            .borderRadius(8)
+            .padding(10)
+            .onChange((value: string) => {
+              this.username = value;
+            });
+
+          TextInput({
+            placeholder: '请输入密码',
+          })
+            .width(300)
+            .height(50)
+            .fontSize(18)
+            .type(InputType.Password)
+            .backgroundColor('#F5F5F5')
+            .borderRadius(8)
+            .padding(10)
+            .onChange((value: string) => {
+              this.password = value;
+            });
+
+          Button('注册')
+            .width(300)
+            .height(50)
+            .fontSize(18)
+            .backgroundColor('#0F40F5')
+            .borderRadius(8)
+            .onClick(() => {
+              this.S_register();
+            });
+        }
+      }.backgroundColor('#EAF2FF')
+      .padding({ top: 50, bottom: 50 })
+      .borderRadius(16);
+    }
+  }
+}
