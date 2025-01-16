@@ -4,6 +4,13 @@ import { NewsItemComponent } from './NewsItemComponent';
 import DataBaseHelper from '../entryability/DataBaseHelper'
 import { common } from '@kit.AbilityKit';
 import { promptAction } from '@kit.ArkUI';
+import { taskpool } from '@kit.ArkTS';
+
+@Concurrent
+async function getNewsFromDBTask(): Promise<Array<NewsItem>> {
+    return [];
+}
+
 
 @Component
 struct NewsComponent {
@@ -138,6 +145,8 @@ struct NewsComponent {
         }, 3000); //3秒后重新刷新
     }
 
+
+
     classifyNewsAndWriteToArray() {
             let dbh = new DataBaseHelper(this.context)
             dbh.createDataBase().then(()=>{
@@ -150,29 +159,43 @@ struct NewsComponent {
                     } catch (error) {
                         console.error(`showToast error: ${error}`);
                     };
-                }); //在创建数据库之后立即拉取新闻数据
-                dbh.getNewsFromDB("Feature").then((res) => {
-                    this.FeatureNews = res;
+                });
+                //在创建数据库之后立即拉取新闻数据
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("Feature").then((res) => {
+                        this.FeatureNews = res;
+                    })
                 })
-                dbh.getNewsFromDB("finance").then((res) => {
-                    this.FinancialNews = res;
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("finance").then((res) => {
+                        this.FinancialNews = res;
+                    })
                 })
-                dbh.getNewsFromDB("Games").then((res) => {
-                    this.GamesNews = res;
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("Games").then((res) => {
+                        this.GamesNews = res;
+                    })
                 })
-                dbh.getNewsFromDB("Technology").then((res) => {
-                    this.TechnologyNews = res;
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("Technology").then((res) => {
+                        this.TechnologyNews = res;
+                    })
                 })
-                dbh.getNewsFromDB("Health").then((res) => {
-                    this.HealthNews = res;
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("Health").then((res) => {
+                        this.HealthNews = res;
+                    })
                 })
-                dbh.getNewsFromDB("World").then((res) => {
-                    this.WorldNews = res;
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("World").then((res) => {
+                        this.WorldNews = res;
+                    })
                 })
-                dbh.getNewsFromDB("Sports").then((res) => {
-                    this.SportsNews = res;
+                taskpool.execute(getNewsFromDBTask).then((ret) => {
+                    dbh.getNewsFromDB("Sports").then((res) => {
+                        this.SportsNews = res;
+                    })
                 })
-                console.log("Feature News:", this.FeatureNews.toString());
             }).catch(
                 (error: Error) => {
                     console.error("createDataBase Error!", error)
