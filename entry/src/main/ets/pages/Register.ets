@@ -1,34 +1,30 @@
 import router from '@ohos.router';
-import http from '@ohos.net.http';
 import promptAction from '@ohos.promptAction';
 
 @Entry
 @Component
-struct Index {
+struct Register {
 
   @State activities: object[] = [];
   @State username: string = '';
   @State password: string = '';
 
-  S_login() {
-    if (this.username == "admin" && this.password == "admin") {
+  S_register() {
+    if (this.username !== '' && this.password !== '') {
+      promptAction.showToast({
+        message: "注册成功，跳转至登录页面",
+      });
       router.replaceUrl({
-        url: "pages/Index",
+        url: "pages/Login",
         params: {
           activities: this.activities
         }
       });
     } else {
       promptAction.showToast({
-        message: "密码或用户名错误，请重新输入"
+        message: "用户名或密码不能为空"
       });
     }
-  }
-
-  register(){
-    router.replaceUrl({
-      url: "pages/Register"
-    });
   }
 
   build() {
@@ -39,7 +35,7 @@ struct Index {
         Column({
           space: 20
         }) {
-          Text("望界新闻")
+          Text("望界新闻注册")
             .fontSize(30)
             .fontWeight(FontWeight.Bold)
             .margin({ top: 20, bottom: 20 });
@@ -71,16 +67,6 @@ struct Index {
               this.password = value;
             });
 
-          Button('登录')
-            .width(300)
-            .height(50)
-            .fontSize(18)
-            .backgroundColor('#0F40F5')
-            .borderRadius(8)
-            .onClick(() => {
-              this.S_login();
-            });
-
           Button('注册')
             .width(300)
             .height(50)
@@ -88,9 +74,7 @@ struct Index {
             .backgroundColor('#0F40F5')
             .borderRadius(8)
             .onClick(() => {
-              router.replaceUrl({
-                url: "pages/Register",
-              });
+              this.S_register();
             });
         }
       }.backgroundColor('#EAF2FF')
