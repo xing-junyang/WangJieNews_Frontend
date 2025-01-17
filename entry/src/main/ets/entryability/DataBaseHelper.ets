@@ -15,6 +15,7 @@ export default class DataBaseHelper {
         this.ctx = ctx;
     }
 
+    // 初始化或创建本地数据库及必要的表结构
     async createDataBase(): Promise<void> {
         console.log("Entered createDataBase")
         return new Promise((resolve, reject) => {
@@ -85,6 +86,8 @@ export default class DataBaseHelper {
         });
     }
 
+
+    // 从服务端获取新闻数据，并将其存储到本地数据库中。
     async getNews() :Promise<void>{
         return new Promise((resolve, reject) =>{
             console.log("Entered getNews");
@@ -169,6 +172,11 @@ export default class DataBaseHelper {
         })
     }
 
+    /**
+     * 从数据库中获取特定类型的新闻条目。
+     * @param {string} type 要查询的新闻类型（例如："politics", "sports" 等）。
+     * @returns {Promise<NewsItem[]>} 返回一个包含所有符合条件的新闻条目的数组的 Promise。
+     */
     async getNewsFromDB(type: string): Promise<NewsItem[]> {
         console.log("Entered getNewsFromDB")
         return new Promise((resolve, reject) => {
@@ -211,6 +219,11 @@ export default class DataBaseHelper {
         })
     }
 
+    /**
+     * 从指定数据库表中获取所有标题非空的新闻条目。
+     * @param {string} database 要查询的数据库表名（例如："NEWS", "HISTORY", "LIKES", "STARRED"）。
+     * @returns {Promise<NewsItem[]>} 返回一个包含所有符合条件的新闻条目的数组的 Promise。
+     */
     async getCollectionFromDB(database: string): Promise<NewsItem[]>{
         console.log("Entering getCollectionFromDB, now getting collection: ", database)
         return new Promise((resolve, reject)=>{
@@ -281,6 +294,11 @@ export default class DataBaseHelper {
         })
     }
 
+    /**
+     * 将新闻条目添加到指定的数据库集合中。
+     * @param {string} database 目标数据库表名（例如："HISTORY", "LIKES", "STARRED"）。
+     * @param {NewsItem} news 要添加的新闻条目对象。
+     */
     async addToCollection(database: string, news: NewsItem): Promise<void>{
         console.log("Entering addToCollection, now getting collection: ", database, ", writing: ", news.title)
         return new Promise((resolve, reject)=>{
@@ -325,6 +343,11 @@ export default class DataBaseHelper {
         })
     }
 
+    /**
+     * 从指定的数据库集合中删除新闻条目。
+     * @param {string} database 目标数据库表名（例如："HISTORY", "LIKES", "STARRED"）。
+     * @param {NewsItem} news 要删除的新闻条目对象。
+     */
     async deleteFromCollection(database: string, news: NewsItem): Promise<void>{
         console.log("Entering deleteFromCollection, now getting collection: ", database, ", deleting: ", news.title)
         return new Promise((resolve, reject)=>{
