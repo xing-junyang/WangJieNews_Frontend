@@ -105,6 +105,19 @@ struct Register {
               this.S_register();
             });
 
+
+          Button('返回')
+            .width(300)
+            .height(50)
+            .fontSize(18)
+            .backgroundColor('#0F40F5')
+            .borderRadius(8)
+            .onClick(() => {
+              router.replaceUrl({
+                url: "pages/Login",
+              });
+            });
+
           // 空组件，调整布局
           Text("")
             .fontWeight(FontWeight.Bold)
