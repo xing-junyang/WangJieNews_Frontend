@@ -1,9 +1,19 @@
 import { UserPageComponentStyle } from '../common/constants/UserPageConstants'
 import {BasicUserInfoComponent} from './UserPage/BasicUserInfoComponent'
 import {UserNewsCollectionComponent} from './UserPage/UserNewsCollectionComponent'
+import { promptAction, router } from '@kit.ArkUI';
 
 @Component
 struct UserPageComponent{
+    logout() {
+        promptAction.showToast({
+            message: "退出成功，跳转至登录页面",
+        });
+        router.replaceUrl({
+            url: "pages/Login",
+        });
+    }
+
     build() {
         Column({ space: 40 }) {
             BasicUserInfoComponent()
@@ -19,6 +29,9 @@ struct UserPageComponent{
                 }
                 .width('90%')
                 .margin(14)
+                .onClick(() => {
+                    this.logout();
+                });
             }
             .width('100%')
             .borderRadius('5%')
