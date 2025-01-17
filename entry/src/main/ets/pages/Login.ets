@@ -114,10 +114,20 @@ struct Index {
                 url: "pages/Register",
               });
             });
+
+          // 空组件，调整布局
+          Text("")
+            .fontWeight(FontWeight.Bold)
+            .margin({ top: '20%', bottom: '20%'});
         }
       }.backgroundColor('#EAF2FF')
+      .width('100%')
+      .height('100%')
       .padding({ top: 50, bottom: 50 })
       .borderRadius(16);
     }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
   }
 }
