@@ -47,11 +47,11 @@ struct BasicUserInfoComponent{
                 .width("60%")
                 .justifyContent(FlexAlign.SpaceBetween)
 
-                Button($r("app.string.user_center"), { type: ButtonType.Normal, stateEffect: true })
-                    .borderRadius(15)
-                    .backgroundColor(Color.Black)
-                    .height(30)
-                    .fontWeight(FontWeight.Bold)
+                // Button($r("app.string.user_center"), { type: ButtonType.Normal, stateEffect: true })
+                //     .borderRadius(15)
+                //     .backgroundColor(Color.Black)
+                //     .height(30)
+                //     .fontWeight(FontWeight.Bold)
             }
             .width('90%')
             .justifyContent(FlexAlign.SpaceBetween)
