@@ -3,6 +3,7 @@ import http from '@ohos.net.http';
 import promptAction from '@ohos.promptAction';
 import DataBaseHelper from '../entryability/DataBaseHelper';
 import AuthService from '../entryability/AuthService';
+import { GlobalVar } from '../entryability/GlobalVar';
 
 @Entry
 @Component
@@ -18,6 +19,7 @@ struct Index {
       .then((success) => {
         if (success) {
           console.info('登录成功');
+          GlobalVar.getInstance().setUsername("用户 " + this.username)
           router.replaceUrl({
             url: "pages/Index",
             params: {

@@ -1,3 +1,4 @@
+import { GlobalVar } from '../../entryability/GlobalVar'
 
 @Component
 struct BasicUserInfoComponent{
@@ -17,7 +18,7 @@ struct BasicUserInfoComponent{
                         })
 
                     Column({ space: 10 }) {
-                        Text($r("app.string.user_name"))
+                        Text(GlobalVar.getInstance().getUsername())
                             .fontSize(24)
                             .fontWeight(FontWeight.Bold)
                         Text($r("app.string.vip_type_name"))
